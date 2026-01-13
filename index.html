@@ -6,164 +6,528 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Personal homepage of Mohammad Khateri" />
 
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  
+
   <style>
-    /* (CSS unchanged — keeping everything exactly the same) */
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8f9fa;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #6c757d;
+      --accent: #007bff;
+      --link-hover: #0056b3;
+      --sidebar-width: 260px;
+      --content-max: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background-color: var(--bg-alt);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Top nav */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background-color: #ffffff;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.5rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .top-nav-title {
+      font-weight: 600;
+      color: #343a40;
+    }
+
+    .top-nav-links a {
+      margin-left: 1.2rem;
+      color: #495057;
+      text-decoration: none;
+    }
+
+    .top-nav-links a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    /* Layout */
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      display: grid;
+      grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+      gap: 2rem;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background-color: #ffffff;
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.25rem;
+      border-radius: 0.25rem;
+    }
+
+    .sidebar-photo-wrapper {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .sidebar-name {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .sidebar-affil {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .sidebar-section-title {
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #495057;
+      margin: 1rem 0 0.4rem;
+    }
+
+    .sidebar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    .sidebar-list li {
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .sidebar-list i {
+      width: 16px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* Main content */
+    .content {
+      max-width: var(--content-max);
+    }
+
+    .section {
+      background-color: #ffffff;
+      border: 1px solid var(--border);
+      padding: 1.5rem 1.75rem;
+      border-radius: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+
+    .section h3 {
+      font-size: 1.0rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .section p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* Research cards */
+    .project-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 1rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .project-item:last-child {
+      border-bottom: none;
+    }
+
+    .project-thumb {
+      width: 100%;
+      height: 110px;
+      border-radius: 0.25rem;
+      background-color: #e9ecef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #868e96;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-meta {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .project-links a {
+      font-size: 0.85rem;
+      margin-right: 0.75rem;
+    }
+
+    /* Publications */
+    .pub-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.93rem;
+    }
+
+    .pub-item {
+      margin-bottom: 0.8rem;
+    }
+
+    .pub-title {
+      font-weight: 500;
+    }
+
+    .pub-authors {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .pub-venue {
+      font-size: 0.86rem;
+    }
+
+    /* Timeline (Honors & Awards, News) */
+    .timeline {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.93rem;
+    }
+
+    .timeline-item {
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-date {
+      font-weight: 500;
+      margin-right: 0.3rem;
+    }
+
+    footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 1.5rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .page {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .sidebar {
+        order: -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .top-nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .top-nav-links a {
+        margin-left: 0;
+        margin-right: 0.75rem;
+      }
+      .section {
+        padding: 1.25rem 1.1rem;
+      }
+      .project-item {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
   </style>
 </head>
-
 <body>
+
+<!-- Top nav -->
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <div class="top-nav-title">Mohammad Khateri</div>
+    <nav class="top-nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#honors">Honors &amp; Awards</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
 <div class="page">
-
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="nav-inner">
-      <div class="nav-left">
-        <div class="nav-dot"></div>
-        <div class="nav-name">Mohammad Khateri</div>
-      </div>
-      <div class="nav-links">
-        <a href="#top" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#research" class="nav-link">Research</a>
-        <a href="#honors-and-awards" class="nav-link">Honors &amp; Awards</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-photo-wrapper">
+      <!-- Ensure profile.jpg exists in the repo root -->
+      <img src="profile.jpg" alt="Portrait of Mohammad Khateri" />
     </div>
-  </nav>
 
-  <main id="top">
+    <div class="sidebar-name">Mohammad Khateri</div>
+    <div class="sidebar-affil">
+      University of Eastern Finland<br />
+      Biomedical Image Analysis Group
+    </div>
 
-    <!-- Hero -->
-    <section class="section hero" id="home">
-      <div class="hero-inner">
-        <div>
-          <div class="hero-subtitle">Computational Imaging &amp; Medical Computer Vision</div>
-          <h1 class="hero-title">Mohammad Khateri</h1>
-          <p class="hero-tagline">
-            Final-year PhD candidate working on brain ultrastructure analysis, simulation, super-resolution, and segmentation.
-          </p>
+    <div class="sidebar-section-title">Contact</div>
+    <ul class="sidebar-list">
+      <li>
+        <i class="fa-solid fa-envelope"></i>
+        <a href="mailto:mohammad.khateri@uef.fi">mohammad.khateri@uef.fi</a>
+      </li>
+      <li>
+        <i class="fa-brands fa-google-scholar"></i>
+        <a href="https://scholar.google.com/citations?user=vHtGWmoAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      </li>
+      <li>
+        <i class="fa-brands fa-github"></i>
+        <a href="https://github.com/mkhateri" target="_blank">GitHub</a>
+      </li>
+      <li>
+        <i class="fa-brands fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/mohammad-khateri-a9279666" target="_blank">LinkedIn</a>
+      </li>
+    </ul>
 
-          <p class="hero-summary">
-            I am a last-year PhD candidate working on medical computer vision and computational imaging, with a focus on
-            biomedia and medical imaging. My doctoral thesis,
-            <em>“Computational Methods for Brain Ultrastructure Analysis: Simulation, Super-Resolution, and Segmentation”</em>,
-            is in its final stages and expected to be submitted by the end of February 2026.
-          </p>
+    <div class="sidebar-section-title">Research Areas</div>
+    <ul class="sidebar-list">
+      <li>Medical computer vision</li>
+      <li>Computational imaging</li>
+      <li>Brain ultrastructure analysis</li>
+      <li>EM, MRI, Ultrasound</li>
+    </ul>
+  </aside>
 
-          <p class="hero-summary">
-            I completed a six-month research visit at Harvard Medical School in Boston, USA, and continue close collaboration.
-            My research spans electron microscopy (EM), magnetic resonance imaging (MRI), ultrasound, and biomedical imaging.
-          </p>
+  <!-- Main content -->
+  <main class="content">
 
-          <div class="hero-meta">
-            <span class="badge">PhD Candidate</span>
-            <span class="badge">Medical Computer Vision</span>
-            <span class="badge">Computational Imaging</span>
-          </div>
-
-          <div class="hero-links">
-            <a href="#research" class="btn-primary">
-              <span>View selected research</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-            <!-- Updated Links -->
-            <a href="mailto:mohammad.khateri@uef.fi" class="icon-link">
-              <i class="fa-solid fa-envelope"></i>
-              <span>Email</span>
-            </a>
-
-            <a href="https://scholar.google.com/citations?user=vHtGWmoAAAAJ&hl=en" class="icon-link" target="_blank">
-              <i class="fa-brands fa-google-scholar"></i>
-              <span>Google Scholar</span>
-            </a>
-
-            <a href="https://github.com/mkhateri" class="icon-link" target="_blank">
-              <i class="fa-brands fa-github"></i>
-              <span>GitHub</span>
-            </a>
-
-            <a href="https://www.linkedin.com/in/mohammad-khateri-a9279666" class="icon-link" target="_blank">
-              <i class="fa-brands fa-linkedin"></i>
-              <span>LinkedIn</span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Right Photo Card -->
-        <div class="hero-photo-wrap">
-          <div class="hero-card">
-            <div class="hero-badge">Open to collaborations</div>
-            <div class="hero-photo-ring">
-              <div class="hero-photo">
-                <!-- Replace with your real photo -->
-                Photo here
-              </div>
-            </div>
-            <div class="hero-card-name">Mohammad Khateri</div>
-            <div class="hero-card-role">Medical Computer Vision &amp; Computational Imaging</div>
-            <div class="hero-card-location">
-              <i class="fa-solid fa-location-dot"></i> Finland
-            </div>
-          </div>
-        </div>
-      </div>
+    <!-- About -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>
+        I am a final-year PhD candidate working on medical computer vision and computational imaging, with a focus on
+        biomedia and medical imaging. My doctoral thesis,
+        <em>“Computational Methods for Brain Ultrastructure Analysis: Simulation, Super-Resolution, and Segmentation”</em>,
+        is in its final stages and is expected to be submitted by the end of February 2026.
+      </p>
+      <p>
+        During my PhD, I completed a six-month research visit at Harvard Medical School in Boston, USA, with ongoing
+        close collaboration. My research specialization lies in computational imaging and medical computer vision, with
+        experience across a broad range of biomedical and clinical imaging modalities, including electron microscopy
+        (EM), magnetic resonance imaging (MRI), and ultrasound.
+      </p>
+      <p class="muted">
+        I enjoy building methods that connect imaging physics, deep learning, and downstream biomedical applications.
+      </p>
     </section>
 
-    <!-- About section … (unchanged, still perfect) -->
+    <!-- Selected Research & Projects -->
+    <section id="research" class="section">
+      <h2>Selected Research &amp; Projects</h2>
+      <ul class="project-list">
+        <!-- Project 1 (example – edit/duplicate as needed) -->
+        <li class="project-item">
+          <div class="project-thumb">
+            Project image
+          </div>
+          <div>
+            <div class="project-title">
+              Example project title on brain ultrastructure super-resolution
+            </div>
+            <div class="project-meta">
+              Mohammad Khateri, Collaborators · [Year or Status]
+            </div>
+            <p>
+              Short 2–3 sentence description of the project: what problem you solve, your method,
+              and what kind of results or applications it has.
+            </p>
+            <div class="project-links">
+              <!-- Replace # with real links when available -->
+              <a href="#" target="_blank">Paper</a>
+              <a href="#" target="_blank">Code</a>
+              <a href="#" target="_blank">Project page</a>
+            </div>
+          </div>
+        </li>
 
-    <!-- Research section … (unchanged) -->
+        <!-- Duplicate <li class="project-item">…</li> blocks for more projects -->
+      </ul>
+    </section>
 
-    <!-- Honors & Awards section … (unchanged) -->
+    <!-- Publications -->
+    <section id="publications" class="section">
+      <h2>Publications</h2>
+      <p class="muted">
+        This is a short placeholder list. Replace each entry with your actual publications.
+      </p>
+      <ul class="pub-list">
+        <li class="pub-item">
+          <div class="pub-title">
+            Example paper title in computational methods for brain ultrastructure analysis
+          </div>
+          <div class="pub-authors">
+            <strong>Mohammad Khateri</strong>, Co-authors
+          </div>
+          <div class="pub-venue">
+            Journal / Conference, Year.
+            <a href="#" target="_blank">PDF</a> ·
+            <a href="#" target="_blank">Code</a>
+          </div>
+        </li>
+
+        <!-- Add more .pub-item entries for your real papers -->
+      </ul>
+    </section>
+
+    <!-- Honors & Awards -->
+    <section id="honors" class="section">
+      <h2>Honors &amp; Awards</h2>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <span class="timeline-date">[Year]</span>
+          [Your award / scholarship / fellowship title], Institution.
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">[Year]</span>
+          [Another recognition, grant, or prize].
+        </li>
+        <!-- Add more items as needed -->
+      </ul>
+    </section>
+
+    <!-- News -->
+    <section id="news" class="section">
+      <h2>News</h2>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <span class="timeline-date">[Month Year]</span>
+          Example: Paper accepted at [Conference / Journal].
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-date">[Month Year]</span>
+          Example: Started research visit at Harvard Medical School.
+        </li>
+        <!-- Add more timeline items -->
+      </ul>
+    </section>
 
     <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="section-header">
-        <div class="section-title">Contact</div>
-        <div class="section-pill">Get in touch</div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <p>
-            For collaborations in computational imaging or medical computer vision, feel free to reach out.
-          </p>
-
-          <ul class="card-list">
-            <li><strong>Email:</strong> 
-              <a href="mailto:mohammad.khateri@uef.fi">mohammad.khateri@uef.fi</a>
-            </li>
-
-            <li><strong>Google Scholar:</strong>
-              <a href="https://scholar.google.com/citations?user=vHtGWmoAAAAJ&hl=en" target="_blank">
-                scholar.google.com/citations?user=vHtGWmoAAAAJ
-              </a>
-            </li>
-
-            <li><strong>GitHub:</strong>
-              <a href="https://github.com/mkhateri" target="_blank">github.com/mkhateri</a>
-            </li>
-
-            <li><strong>LinkedIn:</strong>
-              <a href="https://www.linkedin.com/in/mohammad-khateri-a9279666" target="_blank">
-                linkedin.com/in/mohammad-khateri-a9279666
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>
+        For collaborations in computational imaging or medical computer vision, feel free to reach out.
+      </p>
+      <ul class="pub-list">
+        <li><strong>Email:</strong> <a href="mailto:mohammad.khateri@uef.fi">mohammad.khateri@uef.fi</a></li>
+        <li><strong>Google Scholar:</strong>
+          <a href="https://scholar.google.com/citations?user=vHtGWmoAAAAJ&hl=en" target="_blank">
+            scholar.google.com/citations?user=vHtGWmoAAAAJ
+          </a>
+        </li>
+        <li><strong>GitHub:</strong>
+          <a href="https://github.com/mkhateri" target="_blank">github.com/mkhateri</a>
+        </li>
+        <li><strong>LinkedIn:</strong>
+          <a href="https://www.linkedin.com/in/mohammad-khateri-a9279666" target="_blank">
+            linkedin.com/in/mohammad-khateri-a9279666
+          </a>
+        </li>
+      </ul>
     </section>
 
   </main>
-
-  <footer>
-    &copy; <span id="year"></span> Mohammad Khateri — Built with HTML/CSS and hosted on GitHub Pages.
-  </footer>
-
 </div>
+
+<footer>
+  &copy; <span id="year"></span> Mohammad Khateri. Hosted on GitHub Pages.
+</footer>
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
