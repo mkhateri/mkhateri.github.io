@@ -181,11 +181,6 @@
       padding-bottom: 0.4rem;
     }
 
-    .section h3 {
-      font-size: 1.0rem;
-      margin-bottom: 0.35rem;
-    }
-
     .section p {
       font-size: 0.95rem;
       line-height: 1.6;
@@ -196,79 +191,6 @@
     .muted {
       color: var(--muted);
       font-size: 0.85rem;
-    }
-
-    /* Research cards */
-    .project-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .project-item {
-      display: grid;
-      grid-template-columns: 180px minmax(0, 1fr);
-      gap: 1rem;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid #e9ecef;
-    }
-
-    .project-item:last-child {
-      border-bottom: none;
-    }
-
-    .project-thumb {
-      width: 100%;
-      height: 110px;
-      border-radius: 0.25rem;
-      background-color: #e9ecef;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: #868e96;
-    }
-
-    .project-title {
-      font-weight: 600;
-      font-size: 0.98rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .project-meta {
-      font-size: 0.86rem;
-      color: var(--muted);
-      margin-bottom: 0.2rem;
-    }
-
-    .project-links a {
-      font-size: 0.85rem;
-      margin-right: 0.75rem;
-    }
-
-    /* Publications */
-    .pub-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.93rem;
-    }
-
-    .pub-item {
-      margin-bottom: 0.8rem;
-    }
-
-    .pub-title {
-      font-weight: 500;
-    }
-
-    .pub-authors {
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .pub-venue {
-      font-size: 0.86rem;
     }
 
     /* Timeline (Honors & Awards, News) */
@@ -288,41 +210,6 @@
       margin-right: 0.3rem;
     }
 
-    footer {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0.75rem 1.5rem 1.5rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px) {
-      .page {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .sidebar {
-        order: -1;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .top-nav-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .top-nav-links a {
-        margin-left: 0;
-        margin-right: 0.75rem;
-      }
-      .section {
-        padding: 1.25rem 1.1rem;
-      }
-      .project-item {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
   </style>
 </head>
 <body>
@@ -333,10 +220,8 @@
     <div class="top-nav-title">Mohammad Khateri</div>
     <nav class="top-nav-links">
       <a href="#about">About</a>
-      <a href="#research">Research</a>
       <a href="#publications">Publications</a>
-      <a href="#honors">Honors &amp; Awards</a>
-      <a href="#news">News</a>
+      <a href="#honors">Honors</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -346,7 +231,6 @@
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-photo-wrapper">
-      <!-- Ensure profile.jpg exists in the repo root -->
       <img src="profile.jpg" alt="Portrait of Mohammad Khateri" />
     </div>
 
@@ -356,7 +240,7 @@
       Biomedical Image Analysis Group
     </div>
 
-    <div class="sidebar-section-title">Contact</div>
+    <div class="sidebar-section-title">Links</div>
     <ul class="sidebar-list">
       <li>
         <i class="fa-solid fa-envelope"></i>
@@ -372,7 +256,9 @@
       </li>
       <li>
         <i class="fa-brands fa-linkedin"></i>
-        <a href="https://www.linkedin.com/in/mohammad-khateri-a9279666" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/mohammad-khateri-a9279666" target="_blank">
+          LinkedIn
+        </a>
       </li>
     </ul>
 
@@ -400,101 +286,24 @@
       <p>
         During my PhD, I completed a six-month research visit at Harvard Medical School in Boston, USA, with ongoing
         close collaboration. My research specialization lies in computational imaging and medical computer vision, with
-        experience across a broad range of biomedical and clinical imaging modalities, including electron microscopy
-        (EM), magnetic resonance imaging (MRI), and ultrasound.
+        experience across electron microscopy (EM), magnetic resonance imaging (MRI), and ultrasound.
       </p>
-      <p class="muted">
-        I enjoy building methods that connect imaging physics, deep learning, and downstream biomedical applications.
-      </p>
-    </section>
-
-    <!-- Selected Research & Projects -->
-    <section id="research" class="section">
-      <h2>Selected Research &amp; Projects</h2>
-      <ul class="project-list">
-        <!-- Project 1 (example – edit/duplicate as needed) -->
-        <li class="project-item">
-          <div class="project-thumb">
-            Project image
-          </div>
-          <div>
-            <div class="project-title">
-              Example project title on brain ultrastructure super-resolution
-            </div>
-            <div class="project-meta">
-              Mohammad Khateri, Collaborators · [Year or Status]
-            </div>
-            <p>
-              Short 2–3 sentence description of the project: what problem you solve, your method,
-              and what kind of results or applications it has.
-            </p>
-            <div class="project-links">
-              <!-- Replace # with real links when available -->
-              <a href="#" target="_blank">Paper</a>
-              <a href="#" target="_blank">Code</a>
-              <a href="#" target="_blank">Project page</a>
-            </div>
-          </div>
-        </li>
-
-        <!-- Duplicate <li class="project-item">…</li> blocks for more projects -->
-      </ul>
     </section>
 
     <!-- Publications -->
     <section id="publications" class="section">
       <h2>Publications</h2>
-      <p class="muted">
-        This is a short placeholder list. Replace each entry with your actual publications.
-      </p>
-      <ul class="pub-list">
-        <li class="pub-item">
-          <div class="pub-title">
-            Example paper title in computational methods for brain ultrastructure analysis
-          </div>
-          <div class="pub-authors">
-            <strong>Mohammad Khateri</strong>, Co-authors
-          </div>
-          <div class="pub-venue">
-            Journal / Conference, Year.
-            <a href="#" target="_blank">PDF</a> ·
-            <a href="#" target="_blank">Code</a>
-          </div>
-        </li>
-
-        <!-- Add more .pub-item entries for your real papers -->
-      </ul>
+      <p class="muted">(Add your publication list here)</p>
     </section>
 
-    <!-- Honors & Awards -->
+    <!-- Honors -->
     <section id="honors" class="section">
       <h2>Honors &amp; Awards</h2>
       <ul class="timeline">
         <li class="timeline-item">
           <span class="timeline-date">[Year]</span>
-          [Your award / scholarship / fellowship title], Institution.
+          Example award
         </li>
-        <li class="timeline-item">
-          <span class="timeline-date">[Year]</span>
-          [Another recognition, grant, or prize].
-        </li>
-        <!-- Add more items as needed -->
-      </ul>
-    </section>
-
-    <!-- News -->
-    <section id="news" class="section">
-      <h2>News</h2>
-      <ul class="timeline">
-        <li class="timeline-item">
-          <span class="timeline-date">[Month Year]</span>
-          Example: Paper accepted at [Conference / Journal].
-        </li>
-        <li class="timeline-item">
-          <span class="timeline-date">[Month Year]</span>
-          Example: Started research visit at Harvard Medical School.
-        </li>
-        <!-- Add more timeline items -->
       </ul>
     </section>
 
@@ -502,31 +311,15 @@
     <section id="contact" class="section">
       <h2>Contact</h2>
       <p>
-        For collaborations in computational imaging or medical computer vision, feel free to reach out.
+        Email: <a href="mailto:mohammad.khateri@uef.fi">mohammad.khateri@uef.fi</a>
       </p>
-      <ul class="pub-list">
-        <li><strong>Email:</strong> <a href="mailto:mohammad.khateri@uef.fi">mohammad.khateri@uef.fi</a></li>
-        <li><strong>Google Scholar:</strong>
-          <a href="https://scholar.google.com/citations?user=vHtGWmoAAAAJ&hl=en" target="_blank">
-            scholar.google.com/citations?user=vHtGWmoAAAAJ
-          </a>
-        </li>
-        <li><strong>GitHub:</strong>
-          <a href="https://github.com/mkhateri" target="_blank">github.com/mkhateri</a>
-        </li>
-        <li><strong>LinkedIn:</strong>
-          <a href="https://www.linkedin.com/in/mohammad-khateri-a9279666" target="_blank">
-            linkedin.com/in/mohammad-khateri-a9279666
-          </a>
-        </li>
-      </ul>
     </section>
 
   </main>
 </div>
 
-<footer>
-  &copy; <span id="year"></span> Mohammad Khateri. Hosted on GitHub Pages.
+<footer style="text-align:center; padding:1rem; color:#6c757d; font-size:0.85rem;">
+  &copy; <span id="year"></span> Mohammad Khateri
 </footer>
 
 <script>
