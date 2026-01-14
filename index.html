@@ -210,6 +210,28 @@
       border-radius: 6px;
       border: 1px solid #ccc;
     }
+
+    .top-nav-links {
+      display: flex;
+      justify-content: center;   /* center whole menu */
+      align-items: center;
+      gap: 2.5rem;                /* spacing between items */
+      font-size: 1.05rem;         /* slightly larger */
+      font-weight: 500;
+    }
+    
+    .top-nav-links a {
+      color: #333;
+      text-decoration: none;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+    }
+    
+    .top-nav-links a:hover {
+      background-color: #e8f1fc;
+      color: #0056b3;
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -219,15 +241,19 @@
 <header class="top-nav">
   <div class="top-nav-inner">
     <div class="top-nav-title">Mohammad Khateri</div>
+
     <nav class="top-nav-links">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#honors">Honors</a>
       <a href="#contact">Contact</a>
+      <a href="files/cv.pdf" target="_blank">CV</a>
     </nav>
+
   </div>
 </header>
 
+  
 <div class="page">
 
   <!-- Sidebar -->
