@@ -22,28 +22,24 @@
       --sidebar-width: 260px;
       --content-max: 900px;
     }
-    
+
     /* Custom background colors */
     .sidebar {
-      background-color: #e8f1fc; /* Light blue */
+      background-color: #e8f1fc;
     }
-    
+
     #about.section,
     #about {
-      background-color: #e8f1fc; /* Light blue */
+      background-color: #e8f1fc;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Inter", sans-serif;
       color: var(--text);
       background-color: var(--bg-alt);
     }
@@ -52,7 +48,6 @@
       color: var(--accent);
       text-decoration: none;
     }
-
     a:hover {
       color: var(--link-hover);
       text-decoration: underline;
@@ -77,9 +72,8 @@
       margin: 0 auto;
       padding: 0.5rem 1.5rem;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      align-items: center;
       font-size: 0.9rem;
     }
 
@@ -91,12 +85,6 @@
     .top-nav-links a {
       margin-left: 1.2rem;
       color: #495057;
-      text-decoration: none;
-    }
-
-    .top-nav-links a:hover {
-      color: var(--accent);
-      text-decoration: underline;
     }
 
     /* Layout */
@@ -111,7 +99,6 @@
 
     /* Sidebar */
     .sidebar {
-      background-color: #ffffff;
       border: 1px solid var(--border);
       padding: 1.5rem 1.25rem;
       border-radius: 0.25rem;
@@ -130,7 +117,6 @@
       text-align: center;
       font-weight: 600;
       font-size: 1.1rem;
-      margin-bottom: 0.25rem;
     }
 
     .sidebar-affil {
@@ -138,16 +124,14 @@
       font-size: 0.85rem;
       color: var(--muted);
       margin-bottom: 1rem;
-      line-height: 1.4;
     }
 
     .sidebar-section-title {
       font-weight: 600;
       font-size: 0.8rem;
+      margin: 1rem 0 0.4rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: #495057;
-      margin: 1rem 0 0.4rem;
     }
 
     .sidebar-list {
@@ -161,13 +145,7 @@
       margin-bottom: 0.35rem;
       display: flex;
       align-items: center;
-      gap: 0.35rem;
-    }
-
-    .sidebar-list i {
-      width: 16px;
-      text-align: center;
-      color: var(--muted);
+      gap: 0.4rem;
     }
 
     /* Main content */
@@ -184,64 +162,57 @@
     }
 
     .section h2 {
-      font-size: 1.2rem;
       margin-top: 0;
-      margin-bottom: 0.75rem;
       border-bottom: 1px solid var(--border);
-      padding-bottom: 0.4rem;
+      padding-bottom: 0.3rem;
     }
 
     .section p {
       font-size: 0.95rem;
-      line-height: 1.6;
-      margin-top: 0;
-      margin-bottom: 0.7rem;
     }
 
-    .muted {
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    /* Timeline (Honors & Awards, News) */
-    .timeline {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.93rem;
-    }
-
-    .timeline-item {
-      margin-bottom: 0.75rem;
-    }
-
-    .timeline-date {
-      font-weight: 500;
-      margin-right: 0.3rem;
-    }
-    
-    .project {
+    /* Project entries */
+    .project-entry {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       gap: 1.5rem;
+      padding-bottom: 1.8rem;
       margin-bottom: 2rem;
-    }
-    
-    .project-text {
-      flex: 2;
-    }
-    
-    .project img {
-      flex: 1;
-      max-width: 180px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
+      border-bottom: 1px solid #d8dee4;
     }
 
-    
+    .project-text {
+      flex: 3;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .project-text h3 {
+      margin: 0 0 0.3rem 0;
+      font-size: 1.05rem;
+    }
+
+    .project-authors {
+      margin: 0.2rem 0 0.5rem 0;
+      color: #333;
+      font-size: 0.92rem;
+    }
+
+    .project-links a {
+      margin-right: 1rem;
+      font-weight: 500;
+    }
+
+    .project-thumb {
+      flex: 1.2;
+      max-width: 200px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
+
 <body>
 
 <!-- Top nav -->
@@ -250,7 +221,7 @@
     <div class="top-nav-title">Mohammad Khateri</div>
     <nav class="top-nav-links">
       <a href="#about">About</a>
-      <a href="#projects">Recent Projects</a>
+      <a href="#projects">Projects</a>
       <a href="#honors">Honors</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -258,6 +229,7 @@
 </header>
 
 <div class="page">
+
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-photo-wrapper">
@@ -272,159 +244,184 @@
 
     <div class="sidebar-section-title">Links</div>
     <ul class="sidebar-list">
-      <li>
-        <i class="fa-solid fa-envelope"></i>
+      <li><i class="fa-solid fa-envelope"></i>
         <a href="mailto:mohammad.khateri@uef.fi">mohammad.khateri@uef.fi</a>
       </li>
-      <li>
-        <i class="fa-brands fa-google-scholar"></i>
-        <a href="https://scholar.google.com/citations?user=vHtGWmoAAAAJ&hl=en" target="_blank">Google Scholar</a>
+      <li><i class="fa-brands fa-google-scholar"></i>
+        <a href="https://scholar.google.com/citations?user=vHtGWmoAAAAJ" target="_blank">Google Scholar</a>
       </li>
-      <li>
-        <i class="fa-brands fa-github"></i>
+      <li><i class="fa-brands fa-github"></i>
         <a href="https://github.com/mkhateri" target="_blank">GitHub</a>
       </li>
-      <li>
-        <i class="fa-brands fa-linkedin"></i>
-        <a href="https://www.linkedin.com/in/mohammad-khateri-a9279666" target="_blank">
-          LinkedIn
-        </a>
+      <li><i class="fa-brands fa-linkedin"></i>
+        <a href="https://www.linkedin.com/in/mohammad-khateri-a9279666" target="_blank">LinkedIn</a>
       </li>
     </ul>
 
     <div class="sidebar-section-title">Research Areas</div>
     <ul class="sidebar-list">
-      <li>Medical computer vision</li>
-      <li>Computational imaging</li>
-      <li>Brain ultrastructure analysis</li>
-      <li>EM, MRI, Ultrasound</li>
+      <li>Medical Computer Vision</li>
+      <li>Computational Imaging</li>
+      <li>Brain Ultrastructure</li>
+      <li>MRI / EM / Ultrasound</li>
     </ul>
   </aside>
 
   <!-- Main content -->
   <main class="content">
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-      I am a Ph.D. candidate in Medical Computer Vision at the University of Eastern Finland, working at the intersection of computer vision, computational imaging, and signal processing for biomedical and clinical applications. I recently completed a six-month research visit at Harvard Medical School, where I developed methods for MRI super-resolution and multi-view ultrasound compounding. My research focuses on physics-aware and learning-based approaches for super-resolution, denoising, Monte Carlo diffusion MRI simulation, weakly supervised segmentation, and multi-sensor image fusion. I work across real-world scenarios—from fully supervised to limited-supervision and self-supervised settings—and I am increasingly interested in multimodal biomedical datasets and data-efficient learning for clinically deployable AI systems.
-    </p>
-  </section>
-
-
-<section id="projects" class="section">
-  <h2>Recent Projects</h2>
-
-  <!-- Project 1 -->
-  <div class="project">
-    <div class="project-text">
-      <h3>USFetal: Tools for Fetal Brain Ultrasound Compounding</h3>
-      <strong>Mohammad Khateri</strong>, Morteza Ghahremani, Sergio Valencia,
-      Camilo Jaimes, Alejandra Sierra, Jussi Tohka, P. Ellen Grant, Davood Karimi
+    <!-- About -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
       <p>
-        <a href="https://arxiv.org/pdf/2601.06726" target="_blank">Paper</a> |
-        <a href="https://github.com/mkhateri/USFetal-Compounding-Tools" target="_blank">Code</a>
+        I am a Ph.D. candidate in Medical Computer Vision at the University of Eastern Finland,
+        working at the intersection of computer vision, computational imaging, and signal
+        processing for biomedical and clinical applications. I recently completed a six-month
+        research visit at Harvard Medical School, where I developed MRI super-resolution and
+        multi-view ultrasound compounding methods. My work focuses on physics-aware and
+        learning-based approaches for super-resolution, denoising, Monte Carlo diffusion MRI
+        simulation, weakly supervised segmentation, and multi-sensor image fusion. I am also
+        interested in multimodal biomedical datasets and data-efficient learning for clinically
+        deployable AI systems.
       </p>
-    </div>
+    </section>
 
-    <img src="figs/USfetal.png" alt="USFetal project figure" />
-  </div>
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <h2>Selected Research & Projects</h2>
 
-  <!-- Project 2 -->
-  <div class="project">
-    <div class="project-text">
-      <h3>MRI Super-Resolution with Deep Learning: A Comprehensive Survey</h3>
-      <strong>Mohammad Khateri</strong>, Serge Vasylechko, Morteza Ghahremani,
-      Liam Timms, Deniz Kocanaogullari, Simon K. Warfield, Camilo Jaimes,
-      Davood Karimi, Alejandra Sierra, Jussi Tohka, Sila Kurugol, Onur Afacan
-      <p>
-        <a href="https://arxiv.org/pdf/2511.16854" target="_blank">Paper</a> |
-        <a href="https://github.com/mkhateri/Awesome-MRI-Super-Resolution" target="_blank">Code</a>
-      </p>
-    </div>
-  </div>
+      <!-- Project 1 -->
+      <div class="project-entry">
+        <div class="project-text">
+          <h3>USFetal: Tools for Fetal Brain Ultrasound Compounding</h3>
+          <p class="project-authors">
+            <strong>Mohammad Khateri</strong>, Morteza Ghahremani, Sergio Valencia,
+            Camilo Jaimes, Alejandra Sierra, Jussi Tohka, P. Ellen Grant, Davood Karimi
+          </p>
+          <p class="project-links">
+            <a href="https://arxiv.org/pdf/2601.06726" target="_blank">Paper</a>
+            <a href="https://github.com/mkhateri/USFetal-Compounding-Tools" target="_blank">Code</a>
+          </p>
+        </div>
+        <img src="figs/USfetal.png" class="project-thumb" alt="USFetal figure">
+      </div>
 
-  <!-- Project 3 -->
-  <div class="project">
-    <div class="project-text">
-      <h3>H-ViT: A Hierarchical Vision Transformer for Deformable Image Registration</h3>
-      Morteza Ghahremani, <strong>Mohammad Khateri</strong>, Bailiang Jian,
-      Benedikt Wiestler, Ehsan Adeli, Christian Wachinger
-      <p>
-        <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Ghahremani_H-ViT_A_Hierarchical_Vision_Transformer_for_Deformable_Image_Registration_CVPR_2024_paper.html" target="_blank">Paper</a> |
-        <a href="https://github.com/mogvision/hvit" target="_blank">Code</a>
-      </p>
-    </div>
-  </div>
+      <!-- Project 2 -->
+      <div class="project-entry">
+        <div class="project-text">
+          <h3>MRI Super-Resolution with Deep Learning: A Comprehensive Survey</h3>
+          <p class="project-authors">
+            <strong>Mohammad Khateri</strong>, Serge Vasylechko, Morteza Ghahremani,
+            Liam Timms, Deniz Kocanaogullari, Simon K. Warfield, Camilo Jaimes,
+            Davood Karimi, Alejandra Sierra, Jussi Tohka, Sila Kurugol, Onur Afacan
+          </p>
+          <p class="project-links">
+            <a href="https://arxiv.org/pdf/2511.16854" target="_blank">Paper</a>
+            <a href="https://github.com/mkhateri/Awesome-MRI-Super-Resolution" target="_blank">Code</a>
+          </p>
+        </div>
+        <img src="figs/MRI_SR.png" class="project-thumb" alt="MRI Survey">
+      </div>
 
-  <!-- Project 4 -->
-  <div class="project">
-    <div class="project-text">
-      <h3>No-Clean-Reference Image Super-Resolution: Application to Electron Microscopy</h3>
-      <strong>Mohammad Khateri</strong>, Morteza Ghahremani, Alejandra Sierra, Jussi Tohka
-      <p>
-        <a href="https://doi.org/10.1109/TCI.2024.3426349" target="_blank">Paper</a> |
-        <a href="https://github.com/mkhateri/EMSR" target="_blank">Code</a>
-      </p>
-    </div>
-  </div>
+      <!-- Project 3 -->
+      <div class="project-entry">
+        <div class="project-text">
+          <h3>H-ViT: Hierarchical Vision Transformer for Deformable Registration</h3>
+          <p class="project-authors">
+            Morteza Ghahremani, <strong>Mohammad Khateri</strong>, Bailiang Jian,
+            Benedikt Wiestler, Ehsan Adeli, Christian Wachinger
+          </p>
+          <p class="project-links">
+            <a href="https://openaccess.thecvf.com/content/CVPR2024/html/Ghahremani_H-ViT_A_Hierarchical_Vision_Transformer_for_Deformable_Image_Registration_CVPR_2024_paper.html" target="_blank">Paper</a>
+            <a href="https://github.com/mogvision/hvit" target="_blank">Code</a>
+          </p>
+        </div>
+        <img src="figs/HViT.png" class="project-thumb" alt="HViT">
+      </div>
 
-  <!-- Project 5 -->
-  <div class="project">
-    <div class="project-text">
-      <h3>Self-Supervised Super-Resolution for 3D EM Reconstruction</h3>
-      <strong>Mohammad Khateri</strong>, Morteza Ghahremani, Alejandra Sierra, Jussi Tohka
-      <p>
-        <a href="https://ieeexplore.ieee.org/abstract/document/10323074" target="_blank">Paper</a>
-      </p>
-    </div>
-  </div>
+      <!-- Project 4 -->
+      <div class="project-entry">
+        <div class="project-text">
+          <h3>No-Clean-Reference Image Super-Resolution for Electron Microscopy</h3>
+          <p class="project-authors">
+            <strong>Mohammad Khateri</strong>, Morteza Ghahremani, Alejandra Sierra, Jussi Tohka
+          </p>
+          <p class="project-links">
+            <a href="https://doi.org/10.1109/TCI.2024.3426349" target="_blank">Paper</a>
+            <a href="https://github.com/mkhateri/EMSR" target="_blank">Code</a>
+          </p>
+        </div>
+        <img src="figs/EMSR.png" class="project-thumb" alt="EMSR">
+      </div>
 
-  <!-- Project 6 -->
-  <div class="project">
-    <div class="project-text">
-      <h3>Adversarial Distortion Learning for Medical Image Denoising</h3>
-      Morteza Ghahremani, <strong>Mohammad Khateri</strong>, Alejandra Sierra, Jussi Tohka
-      <p>
-        <a href="https://arxiv.org/pdf/2204.14100" target="_blank">Paper</a> |
-        <a href="https://github.com/mogvision/ADL" target="_blank">Code</a>
-      </p>
-    </div>
-  </div>
+      <!-- Project 5 -->
+      <div class="project-entry">
+        <div class="project-text">
+          <h3>Self-Supervised Isotropic Super-Resolution for 3D EM</h3>
+          <p class="project-authors">
+            <strong>Mohammad Khateri</strong>, Morteza Ghahremani, Alejandra Sierra, Jussi Tohka
+          </p>
+          <p class="project-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/10323074" target="_blank">Paper</a>
+          </p>
+        </div>
+        <img src="figs/EM_iso.png" class="project-thumb" alt="EM Isotropic SR">
+      </div>
 
-  <!-- Project 7 -->
-  <div class="project">
-    <div class="project-text">
-      <h3>What Does FEXI Measure?</h3>
-      <strong>Mohammad Khateri</strong>, Marco Reisert, Alejandra Sierra, Jussi Tohka, Valerij G. Kiselev
-      <p>
-        <a href="https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/nbm.4804" target="_blank">Paper</a>
-      </p>
-    </div>
-  </div>
+      <!-- Project 6 -->
+      <div class="project-entry">
+        <div class="project-text">
+          <h3>Adversarial Distortion Learning for Medical Image Denoising</h3>
+          <p class="project-authors">
+            Morteza Ghahremani, <strong>Mohammad Khateri</strong>, Alejandra Sierra, Jussi Tohka
+          </p>
+          <p class="project-links">
+            <a href="https://arxiv.org/pdf/2204.14100" target="_blank">Paper</a>
+            <a href="https://github.com/mogvision/ADL" target="_blank">Code</a>
+          </p>
+        </div>
+        <img src="figs/ADL.png" class="project-thumb" alt="ADL">
+      </div>
 
-  <!-- Project 8 -->
-  <div class="project">
-    <div class="project-text">
-      <h3>Variational Fusion of Panchromatic & Multi-Spectral Images</h3>
-      <strong>Mohammad Khateri</strong>, Fahim Shabanzade, Fardin Mirzapour, Amirhossein Zaji, Zheng Liu
-      <p>
-        <a href="https://ieeexplore.ieee.org/abstract/document/9119131" target="_blank">Paper</a>
-      </p>
-    </div>
-  </div>
+      <!-- Project 7 -->
+      <div class="project-entry">
+        <div class="project-text">
+          <h3>What Does FEXI Measure?</h3>
+          <p class="project-authors">
+            <strong>Mohammad Khateri</strong>, Marco Reisert, Alejandra Sierra,
+            Jussi Tohka, Valerij G. Kiselev
+          </p>
+          <p class="project-links">
+            <a href="https://analyticalsciencejournals.onlinelibrary.wiley.com/doi/abs/10.1002/nbm.4804" target="_blank">Paper</a>
+          </p>
+        </div>
+        <img src="figs/FEXI.png" class="project-thumb" alt="FEXI">
+      </div>
 
-</section>
+      <!-- Project 8 -->
+      <div class="project-entry">
+        <div class="project-text">
+          <h3>Variational Spatial-Spectral Fusion</h3>
+          <p class="project-authors">
+            <strong>Mohammad Khateri</strong>, Fahim Shabanzade, Fardin Mirzapour,
+            Amirhossein Zaji, Zheng Liu
+          </p>
+          <p class="project-links">
+            <a href="https://ieeexplore.ieee.org/abstract/document/9119131" target="_blank">Paper</a>
+          </p>
+        </div>
+        <img src="figs/Fusion.png" class="project-thumb" alt="Fusion">
+      </div>
 
-
+    </section>
 
     <!-- Honors -->
     <section id="honors" class="section">
-      <h2>Honors &amp; Awards</h2>
+      <h2>Honors & Awards</h2>
       <ul class="timeline">
         <li class="timeline-item">
-          <span class="timeline-date">[Year]</span>
-          Example award
+          <span class="timeline-date">202x</span>
+          Example Award
         </li>
       </ul>
     </section>
@@ -432,9 +429,7 @@
     <!-- Contact -->
     <section id="contact" class="section">
       <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:mohammad.khateri@uef.fi">mohammad.khateri@uef.fi</a>
-      </p>
+      <p>Email: <a href="mailto:mohammad.khateri@uef.fi">mohammad.khateri@uef.fi</a></p>
     </section>
 
   </main>
