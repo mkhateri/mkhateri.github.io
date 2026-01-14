@@ -24,10 +24,21 @@
     }
 
     /* Custom background colors */
-    .sidebar {
-      background-color: #ffffff;
-    }
 
+    .sidebar {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    
+    .project-entry {
+      border-bottom: 1px solid #eee; /* keep separator line */
+    }
+    
+    body {
+      background-color: #ffffff !important;
+    }
+    
     #about.section,
     #about {
       background-color: #e8f1fc;
@@ -153,14 +164,13 @@
       max-width: var(--content-max);
     }
 
-    .section {
-      background-color: #ffffff;
-      border: 1px solid var(--border);
-      padding: 1.5rem 1.75rem;
-      border-radius: 0.25rem;
-      margin-bottom: 1.5rem;
-    }
 
+    .section {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    
     .section h2 {
       margin-top: 0;
       border-bottom: 1px solid var(--border);
