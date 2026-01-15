@@ -115,13 +115,13 @@
       border-radius: 0.25rem;
     }
 
-    .sidebar-photo-wrapper {
-      width: 150px;
-      height: 150px;
-      margin: 0 auto 1rem;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 1px solid var(--border);
+
+    .sidebar-photo-wrapper img {
+      width: 140%;
+      height: 140%;
+      object-fit: cover;       /* Fills the circle */
+      object-position: center; /* Keeps face centered */
+      display: block;
     }
 
     .sidebar-name {
