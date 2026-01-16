@@ -290,6 +290,20 @@
       }
     }
 
+    /* Mobile fix for giant images */
+    @media (max-width: 768px) {
+      .project-entry {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .project-thumb {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+    }
+
   </style>
 </head>
 
