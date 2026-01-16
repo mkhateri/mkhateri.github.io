@@ -257,6 +257,38 @@
       line-height: 1.65;
       margin-right: auto;
     }
+    
+    /* --- Mobile layout fix --- */
+    @media (max-width: 768px) {
+    
+      .page {
+        grid-template-columns: 1fr;   /* Sidebar full width, then content full width */
+        padding: 1rem;
+      }
+    
+      .sidebar {
+        margin-bottom: 2rem;          /* spacing below sidebar */
+      }
+    
+      .project-entry {
+        flex-direction: column;       /* stack project text + image */
+        align-items: center;
+      }
+    
+      .project-thumb {
+        max-width: 90%;
+      }
+    
+      .top-nav-inner {
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+    
+      .top-nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+    }
 
   </style>
 </head>
