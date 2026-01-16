@@ -304,6 +304,37 @@
       }
     }
 
+    /* Mobile navigation fix */
+    @media (max-width: 768px) {
+    
+      .top-nav-inner {
+        flex-direction: column;
+        padding: 0.6rem 1rem;
+        text-align: center;
+      }
+    
+      .top-nav-title {
+        background: none !important;
+        padding: 0;
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+      }
+    
+      .top-nav-links {
+        gap: 1.2rem;
+        font-size: 0.95rem;
+      }
+    
+      .top-nav-links a {
+        padding: 0.3rem 0.4rem;
+      }
+    
+      /* Remove the big pill style on mobile */
+      .top-nav-title {
+        border-radius: 0 !important;
+      }
+    }
+
   </style>
 </head>
 
